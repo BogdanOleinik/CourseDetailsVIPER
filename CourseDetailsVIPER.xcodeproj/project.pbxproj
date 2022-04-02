@@ -13,6 +13,11 @@
 		9CDFB75C27F85C1B00AC49CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CDFB75A27F85C1B00AC49CF /* Main.storyboard */; };
 		9CDFB75E27F85C1D00AC49CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CDFB75D27F85C1D00AC49CF /* Assets.xcassets */; };
 		9CDFB76127F85C1D00AC49CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CDFB75F27F85C1D00AC49CF /* LaunchScreen.storyboard */; };
+		9CDFB76A27F85DBA00AC49CF /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDFB76927F85DBA00AC49CF /* CourseDetailsViewController.swift */; };
+		9CDFB76D27F85F6F00AC49CF /* CourseDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDFB76C27F85F6F00AC49CF /* CourseDetailsPresenter.swift */; };
+		9CDFB76F27F85F7900AC49CF /* CourseDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDFB76E27F85F7900AC49CF /* CourseDetailsInteractor.swift */; };
+		9CDFB77127F85FF800AC49CF /* CourseDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDFB77027F85FF800AC49CF /* CourseDetailsConfigurator.swift */; };
+		9CDFB77327F865F700AC49CF /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDFB77227F865F700AC49CF /* Course.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		9CDFB75D27F85C1D00AC49CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CDFB76027F85C1D00AC49CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CDFB76227F85C1D00AC49CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CDFB76927F85DBA00AC49CF /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
+		9CDFB76C27F85F6F00AC49CF /* CourseDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsPresenter.swift; sourceTree = "<group>"; };
+		9CDFB76E27F85F7900AC49CF /* CourseDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsInteractor.swift; sourceTree = "<group>"; };
+		9CDFB77027F85FF800AC49CF /* CourseDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsConfigurator.swift; sourceTree = "<group>"; };
+		9CDFB77227F865F700AC49CF /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,44 @@
 		9CDFB75327F85C1B00AC49CF /* CourseDetailsVIPER */ = {
 			isa = PBXGroup;
 			children = (
+				9CDFB76B27F85ECD00AC49CF /* CourseDetails */,
+				9CDFB77427F8661700AC49CF /* Models */,
 				9CDFB75427F85C1B00AC49CF /* AppDelegate.swift */,
 				9CDFB75627F85C1B00AC49CF /* SceneDelegate.swift */,
 				9CDFB75827F85C1B00AC49CF /* ViewController.swift */,
-				9CDFB75A27F85C1B00AC49CF /* Main.storyboard */,
+				9CDFB76827F85D9500AC49CF /* Storyboard */,
 				9CDFB75D27F85C1D00AC49CF /* Assets.xcassets */,
-				9CDFB75F27F85C1D00AC49CF /* LaunchScreen.storyboard */,
 				9CDFB76227F85C1D00AC49CF /* Info.plist */,
 			);
 			path = CourseDetailsVIPER;
+			sourceTree = "<group>";
+		};
+		9CDFB76827F85D9500AC49CF /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9CDFB75A27F85C1B00AC49CF /* Main.storyboard */,
+				9CDFB75F27F85C1D00AC49CF /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9CDFB76B27F85ECD00AC49CF /* CourseDetails */ = {
+			isa = PBXGroup;
+			children = (
+				9CDFB76927F85DBA00AC49CF /* CourseDetailsViewController.swift */,
+				9CDFB76C27F85F6F00AC49CF /* CourseDetailsPresenter.swift */,
+				9CDFB76E27F85F7900AC49CF /* CourseDetailsInteractor.swift */,
+				9CDFB77027F85FF800AC49CF /* CourseDetailsConfigurator.swift */,
+			);
+			path = CourseDetails;
+			sourceTree = "<group>";
+		};
+		9CDFB77427F8661700AC49CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9CDFB77227F865F700AC49CF /* Course.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +178,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CDFB75927F85C1B00AC49CF /* ViewController.swift in Sources */,
+				9CDFB77127F85FF800AC49CF /* CourseDetailsConfigurator.swift in Sources */,
 				9CDFB75527F85C1B00AC49CF /* AppDelegate.swift in Sources */,
+				9CDFB76A27F85DBA00AC49CF /* CourseDetailsViewController.swift in Sources */,
+				9CDFB76D27F85F6F00AC49CF /* CourseDetailsPresenter.swift in Sources */,
+				9CDFB76F27F85F7900AC49CF /* CourseDetailsInteractor.swift in Sources */,
+				9CDFB77327F865F700AC49CF /* Course.swift in Sources */,
 				9CDFB75727F85C1B00AC49CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
