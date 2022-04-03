@@ -109,8 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				9CDFB77227F865F700AC49CF /* Course.swift */,
-				9CDFB77827FA17D600AC49CF /* NetworkManager.swift */,
-				9CDFB77A27FA187C00AC49CF /* DataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,6 +116,8 @@
 		9CDFB77727FA06D800AC49CF /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9CDFB77827FA17D600AC49CF /* NetworkManager.swift */,
+				9CDFB77A27FA187C00AC49CF /* DataManager.swift */,
 				9CDFB77527FA06C000AC49CF /* ImageManager.swift */,
 			);
 			path = Services;

@@ -12,11 +12,13 @@ protocol CourseDetailsViewInputProtocol: AnyObject {
     func displayNumberOfLessons(with title: String)
     func displayNumberOfTests(with title: String)
     func displayImage(with imageData: Data)
+    func displayImageForFavoriteButton(with status: Bool)
 }
 
 protocol CourseDetailsViewOutputProtocol: AnyObject {
     init(view: CourseDetailsViewInputProtocol)
     func showDetails()
+    func favoriteButtonPressed()
 }
 
 class CourseDetailsViewController: UIViewController {
@@ -39,6 +41,7 @@ class CourseDetailsViewController: UIViewController {
     var presenter: CourseDetailsViewOutputProtocol!
     
     @IBAction func toggleFavorite(_ sender: UIButton) {
+        presenter.favoriteButtonPressed()
     }
 }
 
@@ -58,5 +61,9 @@ extension CourseDetailsViewController: CourseDetailsViewInputProtocol {
     
     func displayImage(with imageData: Data) {
         courseImage.image = UIImage(data: imageData)
+    }
+    
+    func displayImageForFavoriteButton(with status: Bool) {
+        favoriteButton.tintColor = status ? .red : .gray
     }
 }

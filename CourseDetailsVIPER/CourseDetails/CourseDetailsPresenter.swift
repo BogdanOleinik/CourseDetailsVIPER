@@ -12,6 +12,7 @@ struct CourseDetailsData {
     let courseNumberOfLessons: Int
     let courseNumberOfTests: Int
     let imageData: Data?
+    let isFavorite: Bool
 }
 
 class CourseDetailsPresenter: CourseDetailsViewOutputProtocol {
@@ -25,6 +26,10 @@ class CourseDetailsPresenter: CourseDetailsViewOutputProtocol {
     func showDetails() {
         interactor.provideCourseDetails()
     }
+    
+    func favoriteButtonPressed() {
+        interactor.toggleFavoriteStatus()
+    }
 }
 
 // MARK: - CourseDetailsInteractorOutputProtocol
@@ -36,7 +41,13 @@ extension CourseDetailsPresenter: CourseDetailsInteractorOutputProtocol {
         view.displayNumberOfLessons(with: numberOfLessons)
         view.displayNumberOfTests(with: numberOfTests)
         
+        view.displayImageForFavoriteButton(with: courseData.isFavorite)
+        
         guard let imageData = courseData.imageData else { return }
         view.displayImage(with: imageData)
+    }
+    
+    func receiveFavoriteStatus(with status: Bool) {
+        view.displayImageForFavoriteButton(with: status)
     }
 }
