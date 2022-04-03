@@ -26,11 +26,12 @@ class CourseDetailsInteractor: CourseDetailsInteractorInputProtocol {
     }
     
     func provideCourseDetails() {
+        let imageData = ImageManager.shared.fetchImageData(from: course.imageUrl)
         let courseDetailsData = CourseDetailsData(
             courseName: course.name,
             courseNumberOfLessons: course.numberOfLessons,
             courseNumberOfTests: course.numberOfTests,
-            imageData: <#T##Data?#>
+            imageData: imageData
         )
         presenter.receiveCourseDetails(with: courseDetailsData)
     }
