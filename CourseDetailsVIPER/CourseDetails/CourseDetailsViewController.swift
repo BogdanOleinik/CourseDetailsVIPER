@@ -8,7 +8,10 @@
 import UIKit
 
 protocol CourseDetailsViewInputProtocol: AnyObject {
-    
+    func displayCourseName(with title: String)
+    func displayNumberOfLessons(with title: String)
+    func displayNumberOfTests(with title: String)
+    func displayImage(with imageData: Data)
 }
 
 protocol CourseDetailsViewOutputProtocol: AnyObject {
@@ -41,5 +44,19 @@ class CourseDetailsViewController: UIViewController {
 
 // MARK: - CourseDetailsViewInputProtocol
 extension CourseDetailsViewController: CourseDetailsViewInputProtocol {
+    func displayCourseName(with title: String) {
+        courseNameLabel.text = title
+    }
     
+    func displayNumberOfLessons(with title: String) {
+        numberOfLessonsLabel.text = title
+    }
+    
+    func displayNumberOfTests(with title: String) {
+        numberOfTestsLabel.text = title
+    }
+    
+    func displayImage(with imageData: Data) {
+        courseImage.image = UIImage(data: imageData)
+    }
 }

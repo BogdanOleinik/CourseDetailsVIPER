@@ -9,10 +9,11 @@ import Foundation
 
 protocol CourseDetailsInteractorInputProtocol: AnyObject {
     init(presenter: CourseDetailsInteractorOutputProtocol, course: Course)
+    func provideCourseDetails()
 }
 
 protocol CourseDetailsInteractorOutputProtocol: AnyObject {
-    
+    func receiveCourseDetails(with courseData: CourseDetailsData)
 }
 
 class CourseDetailsInteractor: CourseDetailsInteractorInputProtocol {
@@ -22,5 +23,15 @@ class CourseDetailsInteractor: CourseDetailsInteractorInputProtocol {
     required init(presenter: CourseDetailsInteractorOutputProtocol, course: Course) {
         self.presenter = presenter
         self.course = course
+    }
+    
+    func provideCourseDetails() {
+        let courseDetailsData = CourseDetailsData(
+            courseName: course.name,
+            courseNumberOfLessons: course.numberOfLessons,
+            courseNumberOfTests: course.numberOfTests,
+            imageData: <#T##Data?#>
+        )
+        presenter.receiveCourseDetails(with: courseDetailsData)
     }
 }
