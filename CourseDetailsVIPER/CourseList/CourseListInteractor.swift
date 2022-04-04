@@ -10,10 +10,12 @@ import Foundation
 protocol CourseListInteractorInputProtocol: AnyObject {
     init(presenter: CourseListInteractorOutputProtocol)
     func fetchCourses()
+    func getCourse(at indexPath: IndexPath)
 }
 
 protocol CourseListInteractorOutputProtocol: AnyObject {
     func coursesDidReceive(_ courses: [Course])
+    func courseDidReceive(_ course: Course)
 }
 
 class CourseListInteractor: CourseListInteractorInputProtocol {
@@ -27,6 +29,12 @@ class CourseListInteractor: CourseListInteractorInputProtocol {
     func fetchCourses() {
         NetworkManager.shared.fetchData { courses in
             self.presenter.coursesDidReceive(courses)
+            DataManager.shared.setCourses(courses)
         }
+    }
+    
+    func getCourse(at indexPath: IndexPath) {
+        let course = DataManager.shared.getCourse(at: indexPath)
+        presenter.courseDidReceive(course)
     }
 }

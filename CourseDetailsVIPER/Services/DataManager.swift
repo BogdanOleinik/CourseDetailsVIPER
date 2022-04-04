@@ -11,6 +11,7 @@ class DataManager {
     
     static let shared = DataManager()
     
+    private var courses: [Course] = []
     private let userDefaults = UserDefaults()
     
     private init() {}
@@ -21,5 +22,13 @@ class DataManager {
     
     func getFavoriteStatus(for courseName: String) -> Bool {
         userDefaults.bool(forKey: courseName)
+    }
+    
+    func setCourses(_ course: [Course]) {
+        self.courses = course
+    }
+    
+    func getCourse(at indexPath: IndexPath) -> Course {
+        courses[indexPath.row]
     }
 }

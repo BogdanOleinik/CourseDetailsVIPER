@@ -19,11 +19,21 @@ class CourseListPresenter: CourseListViewOutputProtocol {
     func viewDidLoad() {
         interactor.fetchCourses()
     }
+    
+    func didTapCell(at indexPath: IndexPath) {
+        interactor.getCourse(at: indexPath)
+    }
 }
 
 // MARK: - CourseListInteractorOutputProtocol
 extension CourseListPresenter: CourseListInteractorOutputProtocol {
     func coursesDidReceive(_ courses: [Course]) {
-        view.display(courses)
+        let section = CourseSectionViewModel()
+        courses.forEach { section.rows.append(CourseCellViewModel(course: $0)) }
+        view.reloadData(for: section)
+    }
+    
+    func courseDidReceive(_ course: Course) {
+        router.openCourseDetailsViewController(with: course)
     }
 }

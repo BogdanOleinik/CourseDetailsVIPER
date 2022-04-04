@@ -7,12 +7,24 @@
 
 import UIKit
 
-class CourseTableViewCell: UITableViewCell {
-    func congigure(with course: Course) {
+protocol CellModelRepresentable {
+    var viewModel: CellIdentifiable? { get set }
+}
+
+class CourseTableViewCell: UITableViewCell, CellModelRepresentable {
+    var viewModel: CellIdentifiable? {
+        didSet {
+            updateView()
+        }
+    }
+    
+    private func updateView() {
+        guard let viewModel = viewModel as? CourseCellViewModel else { return }
         var content = defaultContentConfiguration()
-        content.text = course.name
-        guard let imageData = ImageManager.shared.fetchImageData(from: course.imageUrl) else { return }
-        content.image = UIImage(data: imageData)
+        content.text = viewModel.courseName
+        if let imageData = ImageManager.shared.fetchImageData(from: viewModel.imageURL) {
+            content.image = UIImage(data: imageData)
+        }
         contentConfiguration = content
     }
 }
